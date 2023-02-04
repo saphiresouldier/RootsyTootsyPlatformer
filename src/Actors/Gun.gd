@@ -51,7 +51,7 @@ func shoot(direction = 1):
 func _process(delta):
 	#print(player.position)
 	if active:
-		var distance = Vector2(bullet_front.global_position - player.position).length_squared();
+		var distance = Vector2(bullet_front.global_position - player.position).length();
 		print(distance)
 		if (distance > root_distance) and forward:
 			bullet_front.linear_velocity = Vector2(-forward_direction * BULLET_VELOCITY, 0)
