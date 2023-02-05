@@ -3,7 +3,7 @@ extends Position2D
 # Represents a weapon that spawns and shoots bullets.
 # The Cooldown timer controls the cooldown duration between shots.
 
-const BULLET_VELOCITY = 400.0
+const BULLET_VELOCITY = 5000.0
 const Bullet = preload("res://src/Objects/Bullet.tscn")
 export var root_distance = 200 # how far the root reaches
 export var fill_elements = 20
