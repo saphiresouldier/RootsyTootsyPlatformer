@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=1]
 [ext_resource path="res://assets/art/coin/coin.png" type="Texture" id=2]
 [ext_resource path="res://src/UserInterface/CoinsCounter.gd" type="Script" id=3]
+[ext_resource path="res://assets/art/coin/coin_new.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.5 )
@@ -54,7 +55,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 21.5, 22.5 )
 scale = Vector2( 4.375, 4.375 )
 frames = SubResource( 6 )
 animation = "coin_spinning"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 17.0105, 24.0105 )
+scale = Vector2( 0.120493, 0.120493 )
+texture = ExtResource( 4 )
+hframes = 4
