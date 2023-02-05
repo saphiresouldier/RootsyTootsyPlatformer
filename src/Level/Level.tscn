@@ -1,47 +1,12 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/art/tileset/tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Platforms/Platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/audio/music/DiabloDoom auf Vegi_1.0.mp3" type="AudioStream" id=2]
+[ext_resource path="res://src/Objects/Goal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Objects/Coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Level/Level.gd" type="Script" id=5]
-[ext_resource path="res://assets/art/platforms/moving_platform.png" type="Texture" id=6]
 [ext_resource path="res://src/Level/ParallaxBackground.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/audio/music/music.ogg" type="AudioStream" id=8]
 [ext_resource path="res://src/Level/Music.gd" type="Script" id=9]
-
-[sub_resource type="Animation" id=1]
-resource_name = "move"
-length = 4.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 707, 400 ), Vector2( 566, 303 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-length = 8.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -47, 80 ), Vector2( -47, 407 ) ]
-}
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 89.4427
@@ -95,60 +60,10 @@ position = Vector2( -2.888, -3.89101 )
 [node name="Coin3" parent="Coins/CoinsHorizontal6" instance=ExtResource( 4 )]
 position = Vector2( 17.112, -8.89101 )
 
-[node name="Platforms" type="Node" parent="."]
-
-[node name="Platform" parent="Platforms" instance=ExtResource( 3 )]
-visible = false
-position = Vector2( 707, 400 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform"]
-autoplay = "move"
-playback_process_mode = 0
-anims/move = SubResource( 1 )
-
-[node name="Platform2" parent="Platforms" instance=ExtResource( 3 )]
-visible = false
-position = Vector2( -47, 80 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2"]
-autoplay = "move"
-playback_process_mode = 0
-anims/move = SubResource( 2 )
-
-[node name="PlatformStatic" type="StaticBody2D" parent="Platforms"]
-visible = false
-position = Vector2( 569.935, 105.877 )
-rotation = 0.355618
-z_index = -1
-collision_layer = 16
-collision_mask = 0
-
-[node name="Sprite2" type="Sprite" parent="Platforms/PlatformStatic"]
-position = Vector2( -88.692, 10.5003 )
-rotation = -0.246293
-texture = ExtResource( 6 )
-
-[node name="Sprite" type="Sprite" parent="Platforms/PlatformStatic"]
-texture = ExtResource( 6 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/PlatformStatic"]
-position = Vector2( -0.0684814, 0.0254364 )
-polygon = PoolVector2Array( -129.699, 9.94633, -47, -10.5, 8, -7, 10, -1.5, -46.75, -4, -130, 15 )
-
-[node name="Enemies" type="Node" parent="."]
-
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 632.725, 78.5545 )
-
-[node name="Enemy4" parent="Enemies" instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 828.515, 77.262 )
-
 [node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource( 2 )
 autoplay = true
 script = ExtResource( 9 )
 
@@ -158,5 +73,8 @@ position = Vector2( 5552, 992 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGoal"]
 visible = false
 shape = SubResource( 3 )
+
+[node name="Goal" parent="LevelGoal" instance=ExtResource( 3 )]
+scale = Vector2( 10, 10 )
 
 [connection signal="body_entered" from="LevelGoal" to="." method="_on_Area2D_body_entered" binds= [ 1 ]]

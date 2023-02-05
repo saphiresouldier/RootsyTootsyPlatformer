@@ -43,6 +43,7 @@ func shoot(direction = 1):
 	for i in fill_elements:
 		bullet_middle.append(Bullet.instance())
 		bullet_middle[i].set_as_toplevel(true)
+		bullet_middle[i].rotation = deg2rad(randi() % 360)
 		add_child(bullet_middle[i])
 	
 	active = true

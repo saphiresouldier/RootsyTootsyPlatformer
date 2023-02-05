@@ -211,6 +211,7 @@ frame = 16
 position = Vector2( 14, 1 )
 script = ExtResource( 9 )
 root_distance = 5000
+fill_elements = 10
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="Sprite/Gun"]
 position = Vector2( -30.6589, -6.13176 )
