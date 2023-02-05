@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/PotatoSprites.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
 [ext_resource path="res://src/Actors/Gun.gd" type="Script" id=9]
+[ext_resource path="res://src/Actors/Damage.gd" type="Script" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "crouch"
@@ -186,6 +187,10 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 10, 14 )
 
+[sub_resource type="CapsuleShape2D" id=12]
+radius = 15.0
+height = 8.0
+
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 30
 script = ExtResource( 1 )
@@ -209,7 +214,7 @@ vframes = 2
 frame = 1
 
 [node name="Gun" type="Position2D" parent="Sprite"]
-position = Vector2( 5, 1 )
+position = Vector2( 160.581, 96.7422 )
 script = ExtResource( 9 )
 root_distance = 5000
 fill_elements = 10
@@ -281,3 +286,15 @@ scale = Vector2( 1.49157, 1.46265 )
 normal = ExtResource( 8 )
 action = "shoot"
 visibility_mode = 1
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+continuous_cd = 2
+contacts_reported = 4
+contact_monitor = true
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 0, -14 )
+shape = SubResource( 12 )
+
+[connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_RigidBody2D_body_entered"]

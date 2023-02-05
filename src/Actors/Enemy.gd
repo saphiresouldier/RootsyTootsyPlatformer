@@ -14,7 +14,10 @@ onready var floor_detector_left = $FloorDetectorLeft
 onready var floor_detector_right = $FloorDetectorRight
 onready var sprite = $Sprite
 onready var animation_player = $AnimationPlayer
-
+onready var hit = $Hit
+onready var explosion = $Explode
+onready var my_timer = $Timer
+onready var death = $Death
 
 # This function is called when the scene enters the scene tree.
 # We can initialize variables here.
@@ -76,3 +79,14 @@ func get_new_animation():
 	else:
 		animation_new = "destroy"
 	return animation_new
+
+
+func _on_body_entered(body):
+	if body is Player:
+		body.hide()
+		hit.play()
+		explosion.play()
+		death.emitting = true
+		my_timer.start()
+		yield(my_timer, "timeout")
+		get_tree().change_scene("res://src/Main/Game.tscn")
