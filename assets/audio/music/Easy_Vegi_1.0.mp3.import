@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Easy_Vegi_1.0.mp3-ed010f5d223bfd6328d2ad57bd9bf398.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Easy_Vegi_1.0.mp3"
+dest_files=[ "res://.import/Easy_Vegi_1.0.mp3-ed010f5d223bfd6328d2ad57bd9bf398.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

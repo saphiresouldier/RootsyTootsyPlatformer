@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/UserInterface/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main/Game.gd" type="Script" id=2]
-[ext_resource path="res://src/Level/Level_original.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Level/Level_new_2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=4]
 
 [node name="Game" type="Node"]
@@ -17,4 +17,5 @@ layer = 100
 [node name="Level" parent="." instance=ExtResource( 3 )]
 
 [node name="Player" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 11.25, 67.75 )
+position = Vector2( 90, 542 )
+scale = Vector2( 8, 8 )

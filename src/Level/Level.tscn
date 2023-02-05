@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/art/tileset/tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://assets/audio/music/DiabloDoom auf Vegi_1.0.mp3" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/music/Easy_Vegi_1.0.mp3" type="AudioStream" id=2]
 [ext_resource path="res://src/Objects/Goal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Objects/Coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Level/Level.gd" type="Script" id=5]

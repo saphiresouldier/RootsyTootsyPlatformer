@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/DiabloDoom_auf_Vegi_1.2.mp3-d7c8db4ad9afcca985ac20db802dd09c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/DiabloDoom_auf_Vegi_1.2.mp3"
+dest_files=[ "res://.import/DiabloDoom_auf_Vegi_1.2.mp3-d7c8db4ad9afcca985ac20db802dd09c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

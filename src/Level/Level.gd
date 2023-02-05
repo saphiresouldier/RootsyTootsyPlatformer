@@ -3,7 +3,7 @@ extends Node2D
 
 const LIMIT_LEFT = -315
 const LIMIT_TOP = -250
-const LIMIT_RIGHT = 955
+const LIMIT_RIGHT = 1500
 const LIMIT_BOTTOM = 690
 
 
@@ -22,4 +22,8 @@ func _on_Area2D_body_entered(body, extra_arg_0):
 	print("Load level: ")
 	print(extra_arg_0)
 	if extra_arg_0 == 1:
-		get_tree().change_scene("res://src/Main/Game_level_2.tscn")
+		get_tree().change_scene("res://src/Main/Game_2.tscn")
+	elif extra_arg_0 == 0:
+		get_tree().change_scene("res://src/Main/Game.tscn")
+	elif extra_arg_0 == 2:
+		get_tree().change_scene("res://src/Main/Game_3.tscn")
